@@ -17,7 +17,13 @@ router.get("/api/thoughts", (req, res) => {
   res.send(orderedThoughts);
 });
 
-router.post("/api/thoughts", (req, res) => {
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) return next();
+
+  res.send(401);
+}
+
+router.post("/api/thoughts", ensureAuthenticated, (req, res) => {
   const { message } = req.body;
   const newThought = {
     _id: new Date().getTime(),

@@ -48,7 +48,25 @@ app.prepare().then(() => {
     }
   )
 
-  server.use(thoughtsApi);
+  // 4 - configuring passport
+  passport.use(auth0Strategy);
+  passport.serializeUser((user, done) => done(null, user));
+  passport.deserializeUser((user, done) => done(null, user));
+
+  // 5 - adding Passport and authentication routes
+  server.use(passport.initialize());
+  server.use(passport.session());
+  server.use(authRoutes);
+
+  server.use(thoughtsApi); // Should this be restricted too?
+
+  // 6 - you are restricting access to some routes
+  const restrictAccess = (req, res, next) => {
+    if (!req.isAuthenticated()) return res.redirect('/login');
+  }
+
+  server.use('/profile', restrictAccess);
+  server.use('/share-thought', restrictAccess);
 
   // handling everything else with Next.js
   server.get('*', handle);

@@ -1,17 +1,24 @@
 {
-  "name": "nextjs-passport",
+  "name": "rally-cast",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node ./src/server.js",
-    "build": "next build ./src",
-    "start": "NODE_ENV=production node ./src/server.js"
+    "babel-node": "babel-node --config-file ./babel-server.config.js",
+    "build": "next build",
+    "dev": "NODE_ENV=development yarn babel-node server",
+    "start": "NODE_ENV=production yarn babel-node server"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/node": "^7.8.4",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/preset-react": "^7.8.3",
+    "@zeit/next-css": "^1.0.1",
     "body-parser": "^1.19.0",
     "bootstrap": "^4.4.1",
     "dotenv": "^8.2.0",
@@ -25,7 +32,6 @@
     "react": "^16.13.0",
     "react-bootstrap": "^1.0.0-beta.17",
     "react-dom": "^16.13.0",
-    "styled-components": "^5.0.1",
     "uid-safe": "^2.1.5"
   }
 }
