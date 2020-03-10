@@ -3,6 +3,7 @@ import Router from "next/router";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import { useState } from 'react';
+import './app.scss';
 
 export default function ShareThought() {
   const [message, setMessage] = useState('');

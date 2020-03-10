@@ -1,8 +1,10 @@
 // ./src/pages/profile.js
+import Button from "react-bootstrap/Button";
 
 function Profile({ user }) {
   return (
     <div>
+      <Button variant="primary">Primary</Button>
       <h2>
         <img src={user.picture} alt={user.displayName} /> Hello, {user.displayName}
       </h2>

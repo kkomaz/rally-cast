@@ -4,7 +4,7 @@ import Head from 'next/head';
 import Container from "react-bootstrap/Container";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Navbar from "../components/Navbar";
-import './app.css';
+import './app.scss';
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -12,7 +12,7 @@ class MyApp extends App {
 
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
-    }s
+    }
 
     if (ctx.req && ctx.req.session.passport) {
       pageProps.user = ctx.req.session.passport.user;
@@ -26,7 +26,7 @@ class MyApp extends App {
 
     this.state = {
       user: props.pageProps.user,
-    }
+    };
   }
 
   render() {
