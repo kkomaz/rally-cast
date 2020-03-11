@@ -1,0 +1,9 @@
+h2 { 
+  color: white;
+}
+
+:global {
+  .btn-primary {
+    background-color: red;
+  }
+}

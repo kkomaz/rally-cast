@@ -62,7 +62,9 @@ app.prepare().then(() => {
 
   // 6 - you are restricting access to some routes
   const restrictAccess = (req, res, next) => {
+    console.log(req.isAuthenticated());
     if (!req.isAuthenticated()) return res.redirect('/login');
+    return next();
   }
 
   server.use('/profile', restrictAccess);
