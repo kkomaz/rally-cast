@@ -1,0 +1,15 @@
+@import '../stylesheets/variables';
+
+.collapse {
+  justify-content: flex-end;
+}
+
+:global {
+  .navbar {
+    padding: 0.5em 1rem;
+  }
+
+  .navbar-light .navbar-nav .nav-link {
+    color: $primary;
+  }
+}

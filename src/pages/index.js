@@ -19,7 +19,7 @@ Index.getInitialProps = async ({ req }) => {
 
   return {
     thoughts: await res.json(),
-  }
-}
+  };
+};
 
 export default Index;

@@ -1,13 +1,16 @@
 import Link from 'next/link';
 import Container from 'react-bootstrap/Container';
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav"
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import styles from './navbar.scss';
 
 export default function AppNavbar({ user }) {
-  const navbarStyle = { marginBottom: "25px" };
+  const navbarStyle = {
+    marginBottom: '25px',
+  };
 
   return (
-    <Navbar bg="light" expand="lg" style={navbarStyle}>
+    <Navbar bg="dark" expand="lg" style={navbarStyle}>
       <Container>
         <Navbar.Brand>
           <Link href="/">
@@ -15,8 +18,8 @@ export default function AppNavbar({ user }) {
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
+        <Navbar.Collapse className={styles.collapse} id="basic-navbar-nav">
+          <Nav>
             {
               user && (
                 <>

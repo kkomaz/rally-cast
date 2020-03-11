@@ -2,7 +2,6 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 import Thought from "./Thought";
-import './thoughts.scss';
 
 export default function Thoughts(props) {
   return (

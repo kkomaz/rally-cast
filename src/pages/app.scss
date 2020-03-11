@@ -1,9 +1,17 @@
-$primary: #9055A2;
+@import '../stylesheets/_variables.scss';
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
+:global {
+  body {
+    font-family: 'Raleway', sans-serif;
+  }
 
-body {
-  font-family: 'Raleway', sans-serif;
-  color: black;
+  .bg-dark {
+    background-color: $secondary !important;
+  }
+
+  .btn-primary {
+    background-color: $primary;
+  }
 }
