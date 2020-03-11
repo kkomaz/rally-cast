@@ -1,9 +1,9 @@
 import React from 'react';
 import App, { Container as NextContainer } from 'next/app';
 import Head from 'next/head';
-import Container from "react-bootstrap/Container";
-import Jumbotron from "react-bootstrap/Jumbotron";
-import Navbar from "../components/Navbar";
+import Container from 'react-bootstrap/Container';
+import Jumbotron from 'react-bootstrap/Jumbotron';
+import Navbar from '../components/Navbar';
 import './app.scss';
 
 class MyApp extends App {

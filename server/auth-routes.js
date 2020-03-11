@@ -4,10 +4,10 @@ const passport = require('passport');
 const router = express.Router();
 
 router.get('/login', passport.authenticate('auth0', {
-  scope: 'openid email profile'
+  scope: 'openid email profile',
 }), (req, res) => {
   res.redirect('/');
-})
+});
 
 router.get('/callback', (req, res, next) => {
   passport.authenticate('auth0', (err, user) => {

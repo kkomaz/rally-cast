@@ -15,7 +15,7 @@ const dev = process.env.NODE_ENV !== 'production';
 
 const app = next({
   dev,
-  dir: './src'
+  dir: './src',
 });
 
 const handle = app.getRequestHandler();
@@ -27,10 +27,10 @@ app.prepare().then(() => {
   const sessionConfig = {
     secret: uid.sync(18),
     cookie: {
-      maxAge: 86400 * 1000 // 24 hours in milliseconds
+      maxAge: 86400 * 1000, // 24 hours in milliseconds
     },
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
   };
 
   server.use(session(sessionConfig)); // Should understand the docs here.
@@ -41,12 +41,12 @@ app.prepare().then(() => {
       domain: process.env.AUTH0_DOMAIN,
       clientID: process.env.AUTH0_CLIENT_ID,
       clientSecret: process.env.AUTH0_CLIENT_SECRET,
-      callbackURL: process.env.AUTH0_CALLBACK_URL
+      callbackURL: process.env.AUTH0_CALLBACK_URL,
     },
-    function(accessToken, refreshToken, extraParams, profile, done) {
-      return done(null, profile)
-    }
-  )
+    (accessToken, refreshToken, extraParams, profile, done) => (
+      done(null, profile)
+    ),
+  );
 
   // 4 - configuring passport
   passport.use(auth0Strategy);
@@ -65,7 +65,7 @@ app.prepare().then(() => {
     console.log(req.isAuthenticated());
     if (!req.isAuthenticated()) return res.redirect('/login');
     return next();
-  }
+  };
 
   server.use('/profile', restrictAccess);
   server.use('/share-thought', restrictAccess);
